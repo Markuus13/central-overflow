@@ -17,6 +17,18 @@ RSpec.feature "Questions", type: :feature do
     expect(page).to have_current_path(question_path(Question.last))
   end
 
+  feature 'Showing question page' do
+    background do
+      @question = FactoryGirl.create :question
+    end
+
+    scenario 'Showing a question' do
+      visit question_path(@question)
+      expect(page).to have_content(@question.title)
+      expect(page).to have_content(@question.description)
+    end
+  end
+
   xfeature 'Viewing questions' do
     let(:title_1) { 'Question 1' }
     let(:title_2) { 'Question 2' }
