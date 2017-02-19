@@ -29,7 +29,7 @@ RSpec.feature "Questions", type: :feature do
     end
   end
 
-  xfeature 'Viewing questions' do
+  feature 'Viewing questions' do
     let(:title_1) { 'Question 1' }
     let(:title_2) { 'Question 2' }
 
