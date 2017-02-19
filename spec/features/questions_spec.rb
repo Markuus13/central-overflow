@@ -16,4 +16,20 @@ RSpec.feature "Questions", type: :feature do
     click_button 'Ask!'
     expect(page).to have_content 'Question created.'
   end
+
+  xfeature 'Viewing questions' do
+    let(:title_1) { 'Question 1' }
+    let(:title_2) { 'Question 2' }
+
+    background do
+      FactoryGirl.create :question, title: title_1
+      FactoryGirl.create :question, title: title_2
+    end
+
+    scenario 'Viewing created questions' do
+      visit questions_path
+      expect(page).to have_content(title_1)
+      expect(page).to have_content(title_2)
+    end
+  end
 end
