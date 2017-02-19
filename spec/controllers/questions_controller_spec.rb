@@ -16,10 +16,10 @@ RSpec.describe QuestionsController, type: :controller do
   }
 
   it 'creates a question' do
-    expect(Question.all.length).to eq 0
-    post :create, params: {
-      question: valid_attributes
-    }
-    expect(Question.all.length).to eq 1
+    expect {
+      post :create, params: {
+        question: valid_attributes
+      }
+    }.to change(Question, :count).by 1
   end
 end
