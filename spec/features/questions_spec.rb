@@ -7,7 +7,7 @@ RSpec.feature "Questions", type: :feature do
     expect(current_path).to eq(new_question_path)
   end
 
-  xscenario 'Creating a new question' do
+  scenario 'Creating a new question' do
     visit new_question_path
     within('#question-form') do
       fill_in 'Title', with: 'Question one?'

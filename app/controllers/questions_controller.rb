@@ -3,10 +3,16 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = Question.new
   end
 
   def create
-    Question.create(question_params)
+    @question = Question.new(question_params)
+    if @question.save
+      redirect_to questions_path, notice: 'Question created.'
+    else
+      render :new
+    end
   end
 
   private
