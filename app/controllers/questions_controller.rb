@@ -2,6 +2,9 @@ class QuestionsController < ApplicationController
   def index
   end
 
+  def show
+  end
+
   def new
     @question = Question.new
   end
@@ -9,11 +12,12 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path, notice: 'Question created.'
+      redirect_to @question
     else
       render :new
     end
   end
+
 
   private
 

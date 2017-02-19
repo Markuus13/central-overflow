@@ -14,7 +14,7 @@ RSpec.feature "Questions", type: :feature do
       fill_in 'Description', with: 'I really need help in this problem.'
     end
     click_button 'Ask!'
-    expect(page).to have_content 'Question created.'
+    expect(page).to have_current_path(question_path(Question.last))
   end
 
   xfeature 'Viewing questions' do
