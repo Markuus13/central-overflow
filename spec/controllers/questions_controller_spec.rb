@@ -8,13 +8,6 @@ RSpec.describe QuestionsController, type: :controller do
     }
   }
 
-  let(:invalid_attributes) {
-    {
-      title: nil,
-      description: nil
-    }
-  }
-
   it 'creates a question' do
     expect {
       post :create, params: {
