@@ -2,7 +2,7 @@
 
 <% @questions.each do |question| %>
   <div>
-    <p><%= question.title %></p>
+    <p><%= link_to question.title, question %></p>
     <p><%= question.description %></p>
   </div>
   <hr/>

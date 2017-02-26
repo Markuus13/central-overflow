@@ -29,6 +29,13 @@ RSpec.feature "Questions", type: :feature do
       expect(page).to have_content(@question.title)
       expect(page).to have_content(@question.description)
     end
+
+    scenario 'From visiting /questions' do
+      visit questions_path
+      expect(page).to have_link(@question.title, href: question_path (@question))
+      click_link @question.title
+      expect(page).to have_current_path(question_path(@question))
+    end
   end
 
   feature 'View questions' do
